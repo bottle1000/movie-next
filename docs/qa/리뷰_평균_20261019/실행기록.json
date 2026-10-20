@@ -1,0 +1,139 @@
+{
+  "date": "2026-10-19",
+  "date_basis": "새 리뷰 표시일 및 제출 맥락; 캡처 시각 메타데이터는 미확인",
+  "execution_actor": "지원자 직접 조작·캡처",
+  "review_actor": "AI의 첨부 화면·SQL 결과 대조",
+  "url": "http://localhost:3000/movies/11",
+  "movie_id": 11,
+  "movie_title": "범죄도시",
+  "baseline": {
+    "review_id": 47,
+    "reviewer": "admin",
+    "rating": 3,
+    "content": "ddd",
+    "displayed_created_at": "2025-11-19 13:21:38",
+    "newly_created_for_this_run": false
+  },
+  "steps": [
+    {
+      "step": 1,
+      "ratings": [
+        3
+      ],
+      "expected_average": 3,
+      "ui_average": 3,
+      "visible_review_count": 1,
+      "sql_count": null,
+      "sql_average": null,
+      "evidence": [
+        "UI01a_영화11_평균3.png",
+        "UI01b_기존admin_3점.png"
+      ],
+      "verdict": "화면 기대값 일치"
+    },
+    {
+      "step": 2,
+      "ratings": [
+        3,
+        1
+      ],
+      "expected_average": 2,
+      "ui_average": 2,
+      "visible_review_count": 2,
+      "sql_count": null,
+      "sql_average": null,
+      "evidence": [
+        "UI02_A추가_평균2.png"
+      ],
+      "verdict": "화면 기대값 일치"
+    },
+    {
+      "step": 3,
+      "ratings": [
+        3,
+        1,
+        5
+      ],
+      "expected_average": 3,
+      "ui_average": 3,
+      "visible_review_count": 3,
+      "sql_count": 3,
+      "sql_average": 3,
+      "review_ids": [
+        47,
+        61,
+        62
+      ],
+      "evidence": [
+        "UI03_B추가_평균3.png",
+        "DB03_3건_평균3.png"
+      ],
+      "verdict": "화면·SQL 기대값 일치"
+    },
+    {
+      "step": 4,
+      "ratings": [
+        3,
+        5
+      ],
+      "expected_average": 4,
+      "ui_average": 4,
+      "visible_review_count": 2,
+      "sql_count": 2,
+      "sql_average": 4,
+      "review_ids": [
+        47,
+        62
+      ],
+      "evidence": [
+        "UI04_A삭제후_평균4.png",
+        "DB04_2건_평균4.png"
+      ],
+      "verdict": "화면·SQL 기대값 일치"
+    }
+  ],
+  "limits": [
+    "①·② 단계의 SQL 캡처 미확보",
+    "최종 삭제 조작자와 확인창 자체는 캡처되지 않음; 삭제 후 상태 확인",
+    "과거 3.666…의 원인 및 과거 실행 전체 결과를 입증하지 않음",
+    "이번 실행의 소스 해시·브라우저 버전 미확인",
+    "기존 35건에 합산하지 않음"
+  ],
+  "attachments": [
+    {
+      "file": "UI01a_영화11_평균3.png",
+      "source_attachment": "codex-clipboard-2e790dfa-bafd-46c8-a1e5-ba006e12d9a2.png",
+      "sha256": "9b9fd89fb9fc4a7b17db30b6f354f3ed7b4358bab290fba86f755e30ef540578"
+    },
+    {
+      "file": "UI01b_기존admin_3점.png",
+      "source_attachment": "codex-clipboard-5ac670c3-8ef0-4780-9f45-a03be6e1229e.png",
+      "sha256": "7c64333836bf28cd357e2b7b306f006ab28a5f29c34b763680f3abc51bb37ff9"
+    },
+    {
+      "file": "UI02_A추가_평균2.png",
+      "source_attachment": "codex-clipboard-8baa67d8-75c9-4764-a4c9-61d553c6a8c8.png",
+      "sha256": "4ae4bf9da4cfac267193ca9bc7161a246c79d1b77807595eb412489589f07624"
+    },
+    {
+      "file": "UI03_B추가_평균3.png",
+      "source_attachment": "codex-clipboard-0630078a-5a52-40d6-a7c2-51af960ef378.png",
+      "sha256": "34d61f502eb0c9cd994fe7ba8aa3fbd6d2c6794e50a7ab2ec7bf5558d995678b"
+    },
+    {
+      "file": "DB03_3건_평균3.png",
+      "source_attachment": "codex-clipboard-8e135ccf-455c-4b40-8836-3f80627d1054.png",
+      "sha256": "6bb2353aa433f15113be002f8e09d3026d326aa720a4f45e0aabc6a4fa9e13a9"
+    },
+    {
+      "file": "UI04_A삭제후_평균4.png",
+      "source_attachment": "codex-clipboard-d5c1543f-c2f9-4384-9dd3-d40428171933.png",
+      "sha256": "d3c0e3d7554f0f85cd2e0ab2b21ea2fbe406a1b394e4d9054171599a403bd2cb"
+    },
+    {
+      "file": "DB04_2건_평균4.png",
+      "source_attachment": "codex-clipboard-c5641e40-e260-42c3-b2b5-1d2a0185c9c5.png",
+      "sha256": "e53e8c833224e03a1250d17b8421c29af38a87e3c6e1e70b94b876eac111351d"
+    }
+  ]
+}

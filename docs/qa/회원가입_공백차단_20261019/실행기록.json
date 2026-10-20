@@ -1,0 +1,42 @@
+{
+  "recorded_date": "2026-10-19",
+  "execution_actor": "지원자 직접 실행·캡처",
+  "review_actor": "AI의 제출 자료 대조",
+  "email": "qa-space@example.com",
+  "name": "qa-space",
+  "birth_date": "2000-01-11",
+  "test_password": "Aa1! bbb",
+  "test_password_confirmation": "Aa1! bbb",
+  "input_evidence": "사용자가 두 칸 모두 안내 문자열 그대로 입력했다고 명시 확인; 화면은 마스킹됨",
+  "sql_timing": "가입 버튼 클릭 후 오류가 나온 뒤 조회했다고 사용자 확인",
+  "sql_before_count": null,
+  "sql_after_count": 0,
+  "expected": "공백 포함 비밀번호 가입 차단·회원 미생성",
+  "actual": "제출 후 공백 금지 안내와 같은 이메일 회원 수 0",
+  "verdict": "이번 입력 조건의 기대결과 일치",
+  "separate_observation": "제출 후 비밀번호 두 칸이 비어 있으나 비밀번호가 일치합니다 안내 유지",
+  "limits": [
+    "가입 전 SQL 캡처 미확보",
+    "과거 공백 가입 성공·재로그인 증거를 대체하지 않음",
+    "클라이언트 우회 서버 직접 요청 미실행",
+    "정확한 실행 시각·소스 버전 미확인",
+    "기존 35건 및 결함 3건에 합산하지 않음"
+  ],
+  "attachments": [
+    {
+      "file": "UI01_제출전_입력오류.png",
+      "sha256": "2a3b3eb3fd9c5bb23c8482ece2e769cf1fc14ff6f2d5123b5a9cbfbeec42c3ab",
+      "source_attachment": "codex-clipboard-74ddb597-e064-4c57-9cfc-3ef582758e1e.png"
+    },
+    {
+      "file": "UI02_제출후_공백금지.png",
+      "sha256": "49a1218162384c49544abee8311182aebb1a212ae48c879331d68852054831da",
+      "source_attachment": "codex-clipboard-5f3a292e-bbe6-4482-881f-e36fd33f63cf.png"
+    },
+    {
+      "file": "DB01_시도후_회원0.png",
+      "sha256": "11ee7edb5928a39db307ebc05c9d1cdc0fd620fb70faa319b1b98c1a7a138e99",
+      "source_attachment": "codex-clipboard-6b5d690c-ba37-4cf5-a193-8953b44c759b.png"
+    }
+  ]
+}

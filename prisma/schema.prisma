@@ -1,0 +1,82 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model movie {
+  movie_id   BigInt       @id @default(autoincrement())
+  title      String       @db.VarChar(255)
+  director   String       @db.VarChar(255)
+  year       Int
+  thumbnail  String?      @db.VarChar(1000)
+  story      String?      @db.Text
+  user_id    BigInt
+  like_count BigInt       @default(0)
+  created_at DateTime?    @default(now()) @db.DateTime(0)
+  updated_at DateTime?    @default(now()) @db.DateTime(0)
+  users      users        @relation(fields: [user_id], references: [user_id], onDelete: Cascade, map: "fk_movie_user")
+  movie_like movie_like[]
+  review     review[]
+
+  @@index([user_id], map: "fk_movie_user")
+}
+
+model review {
+  review_id  BigInt   @id @default(autoincrement())
+  content    String   @db.Text
+  rating     Float?   @default(0) @db.Float
+  created_at DateTime @default(now()) @db.DateTime(0)
+  updated_at DateTime @default(now()) @db.DateTime(0)
+  user_id    BigInt
+  movie_id   BigInt
+  movie      movie    @relation(fields: [movie_id], references: [movie_id], onDelete: Cascade, map: "fk_review_movie")
+  users      users    @relation(fields: [user_id], references: [user_id], onDelete: Cascade, map: "fk_review_user")
+
+  @@unique([movie_id, user_id], map: "uq_review_move_user")
+  @@index([movie_id], map: "idx_review_movie_id")
+  @@index([user_id], map: "idx_review_user_id")
+}
+
+model session {
+  session_id    String    @id @db.Char(36)
+  user_id       BigInt
+  expires_at    DateTime  @db.DateTime(0)
+  created_at    DateTime? @default(now()) @db.DateTime(0)
+  last_accessed DateTime? @default(now()) @db.DateTime(0)
+  user_agent    String?   @db.VarChar(255)
+  users         users     @relation(fields: [user_id], references: [user_id], onDelete: Cascade, map: "fk_session_user")
+
+  @@index([user_id], map: "idx_session_user_id")
+}
+
+model users {
+  user_id       BigInt       @id @default(autoincrement())
+  email         String       @unique(map: "email") @db.VarChar(255)
+  password      String       @db.VarChar(255)
+  name          String       @db.VarChar(100)
+  birth_date    DateTime?    @db.Date
+  role          String       @default("USER") @db.VarChar(20)
+  created_at    DateTime?    @default(now()) @db.DateTime(0)
+  updated_at    DateTime?    @default(now()) @db.DateTime(0)
+  profile_image String?      @db.VarChar(255)
+  movie         movie[]
+  movie_like    movie_like[]
+  review        review[]
+  session       session[]
+}
+
+model movie_like {
+  movie_like_id BigInt   @id @default(autoincrement())
+  movie_id      BigInt
+  user_id       BigInt
+  created_at    DateTime @default(now()) @db.Timestamp(0)
+  movie         movie    @relation(fields: [movie_id], references: [movie_id], onDelete: Cascade, onUpdate: NoAction, map: "movie_like_ibfk_1")
+  users         users    @relation(fields: [user_id], references: [user_id], onDelete: Cascade, onUpdate: NoAction, map: "movie_like_ibfk_2")
+
+  @@unique([movie_id, user_id], map: "uq_movie_like")
+  @@index([user_id], map: "idx_movie_like_user")
+}

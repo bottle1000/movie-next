@@ -1,0 +1,136 @@
+/* =========================
+   프로필 카드 레이아웃
+========================= */
+.card {
+    width: 100%;
+    max-width: 480px;
+    margin: 40px auto;
+    padding: 28px 32px;
+    border-radius: 16px;
+    background: var(--panel-2);
+    border: 1px solid var(--border);
+    box-shadow: 0 6px 18px var(--shadow);
+    display: grid;
+    gap: 24px;
+}
+
+.title {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+/* =========================
+   현재 이미지 섹션
+========================= */
+.current {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.label {
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--text);
+}
+
+.avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    object-fit: cover;
+    background: #000;
+}
+
+.placeholder {
+    width: 120px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+}
+
+.img {
+    width: 100%;
+    aspect-ratio: 2/3;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    background: var(--panel-2);
+}
+
+/* =========================
+    폼
+========================= */
+.form {
+    display: grid;
+    gap: 20px;
+}
+
+.field {
+    display: grid;
+    gap: 8px;
+}
+
+.input {
+    height: 42px;
+    padding: 0 12px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: var(--panel-1);
+    color: var(--text);
+    outline: none;
+    transition: 0.2s border-color, 0.2s box-shadow;
+}
+.input:focus {
+    border-color: #3a3a4a;
+    box-shadow: 0 0 0 4px rgba(225, 10, 15, 0.12);
+}
+
+/* =========================
+    버튼
+========================= */
+.btn {
+    height: 42px;
+    padding: 0 14px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    color: var(--text);
+    cursor: pointer;
+    background: linear-gradient(180deg, #1a1a20, #14141a);
+    transition: transform 0.12s ease, box-shadow 0.12s ease, opacity 0.2s ease;
+}
+.btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 24px var(--shadow);
+}
+.btn:disabled {
+    opacity: 0.6;
+    transform: none;
+    box-shadow: none;
+}
+
+.btnPrimary {
+    border-color: #7a060a;
+    background: linear-gradient(180deg, #c30b13, var(--accent));
+}
+.btnPrimary:hover {
+    background: linear-gradient(180deg, #ff2732, #d50c16);
+}
+
+/* =========================
+   에러 메시지
+========================= */
+.error {
+    color: #ff6b6b;
+    background: rgba(255, 107, 107, 0.1);
+    padding: 8px 12px;
+    font-size: 14px;
+    border-radius: 8px;
+}

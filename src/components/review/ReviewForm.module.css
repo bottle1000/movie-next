@@ -1,0 +1,200 @@
+/* ==========================
+   리뷰 목록 / 작성 폼
+   ========================== */
+.list {
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 0;
+    list-style: none;
+}
+
+.item {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 10px 14px;
+    box-shadow: 0 6px 16px var(--shadow);
+    transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.date {
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.myReview {
+    border-color: #ff4b5c; /* 살짝 붉은 톤 */
+    box-shadow: 0 0 0 1px rgba(255, 75, 92, 0.4);
+    background: rgba(255, 75, 92, 0.04); /* 아주 은은한 배경 */
+}
+
+.item:hover {
+    border-color: #353540;
+    background: var(--panel-2);
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.author {
+    color: var(--accent-2);
+    font-weight: 600;
+    font-size: 14px;
+    margin-right: 8px;
+}
+
+.content {
+    flex: 1;
+    color: var(--text);
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* 삭제 버튼 인라인 폼 */
+.inlineForm {
+    display: inline-flex;
+    align-items: center;
+    margin-left: 8px;
+}
+
+/* 빈 리스트 */
+.empty {
+    color: var(--muted);
+    font-size: 13px;
+    text-align: center;
+    padding: 10px;
+}
+
+.reviewHeader {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 15px;
+}
+
+/* ==========================
+   리뷰 작성 폼
+   ========================== */
+.form {
+    margin-top: 24px;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    box-shadow: 0 10px 26px var(--shadow);
+}
+
+.form .row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* 감상평 입력창 */
+.input {
+    flex: 1;
+    height: 44px;
+    min-width: 300px;
+    color: var(--text);
+    background: var(--panel-2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 0 14px;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input:focus {
+    border-color: #3a3a4a;
+    box-shadow: 0 0 0 4px rgba(229, 9, 20, 0.15);
+}
+
+/* 평점 드롭다운 */
+.select {
+    min-width: 130px;
+    height: 44px;
+    padding: 0 12px;
+    color: var(--text);
+    background: var(--panel-2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.select:focus {
+    border-color: #3a3a4a;
+    box-shadow: 0 0 0 4px rgba(229, 9, 20, 0.15);
+}
+
+/* ==========================
+   버튼 (공통 시스템 기반 확장)
+   ========================== */
+
+/* 등록 버튼 – 기존보다 톤 다운된 버건디 레드 */
+.submitBtn {
+    height: 44px;
+    padding: 0 18px;
+    border-radius: 10px;
+    border: 1px solid #6d1115;
+    background: linear-gradient(180deg, #8b141a, #4c0c0f);
+    color: var(--text);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+    transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.2s ease;
+}
+.submitBtn:hover {
+    background: linear-gradient(180deg, #a7171d, #5a0e12);
+    transform: translateY(-1px);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.4);
+}
+
+.readBtn {
+    height: 30px;
+    padding: 0 10px;
+    border-radius: 10px;
+    border: 1px solid #6d1115;
+    background: linear-gradient(180deg, #8b141a, #4c0c0f);
+    color: var(--text);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+    transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.2s ease;
+}
+
+.readBtn:hover {
+    background: linear-gradient(180deg, #a7171d, #5a0e12);
+    transform: translateY(-1px);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.4);
+}
+
+/* 삭제 버튼 – 어두운 레드톤 */
+.btnLogout {
+    border-color: #4d1b1d;
+    background: linear-gradient(180deg, #3a1213, #240a0b);
+    color: #e4e4e4;
+    transition: background 0.2s ease, transform 0.12s ease;
+}
+.btnLogout:hover {
+    background: linear-gradient(180deg, #501618, #2e0d0f);
+    transform: translateY(-1px);
+}
+
+/* 비활성 상태 */
+.btnDisabled {
+    background: linear-gradient(180deg, #2a2a30, #1c1c22);
+    border-color: var(--border);
+    opacity: 0.75;
+    cursor: not-allowed;
+}
+
+/* 에러 메시지 */
+.error {
+    color: #ff6b6b;
+    font-size: 13px;
+    padding-left: 2px;
+}

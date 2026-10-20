@@ -1,0 +1,64 @@
+/* MovieDeleteModal.module.css */
+
+.backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 200;
+}
+
+.modal {
+    background: #111827;
+    color: #e5e7eb;
+    padding: 20px 24px;
+    border-radius: 12px;
+    min-width: 280px;
+    max-width: 360px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+    border: 1px solid #374151;
+}
+
+.message {
+    font-size: 15px;
+    margin-bottom: 16px;
+}
+
+.error {
+    font-size: 13px;
+    color: #f97373;
+    margin-bottom: 8px;
+}
+
+.actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+/* 버튼 공통 */
+.btn {
+    padding: 6px 12px;
+    font-size: 14px;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    cursor: pointer;
+}
+
+.btnGhost {
+    background: #1f2937;
+    border-color: #4b5563;
+    color: #e5e7eb;
+}
+
+.btnDanger {
+    background: #b91c1c;
+    color: white;
+}
+.btnDanger:disabled,
+.btnGhost:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
